@@ -11,6 +11,7 @@ alias l="ls -al"
 alias ll="ls -als"
 alias lp="ls -p"
 alias h=history
+alias tt="echo test"
 
 # the "kp" alias ("que pasa"), in honor of tony p.
 alias kp="ps auxwww"

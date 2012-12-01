@@ -5,7 +5,7 @@ DOTFILE=$1
 cd
 
 echo "Moving ~/.$DOTFILE to ~/dotfiles/$DOTFILE"
-cp ~/.$DOTFILE ~/dotfiles/$DOTFILE
+cp -a ~/.$DOTFILE ~/dotfiles/$DOTFILE
 
 echo "Removing ~/.$DOTFILE"
 rm ~/.$DOTFILE
