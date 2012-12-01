@@ -1,4 +1,3 @@
-cd redmine
 git clone git://github.com/redmine/redmine.git
 git branch
 ls
@@ -498,3 +497,4 @@ ps aux
 ls
 ls
 :q
+tt
