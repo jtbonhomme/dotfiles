@@ -1,8 +1,28 @@
 
+" Enable Syntax Colors
+syntax on
+if has("gui_running")
+  set guifont=Mensch\ 10
+else
+  colorscheme mustang
+endif
+
 set background=dark
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+colorscheme solarized
 
-set mouse=a
 
-call pathogen#runtime_append_all_bundles()
+" Remember cursor position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
-call pathogen#helptags()
+
+" Disable the blinking cursor.
+set gcr=a:blinkon0
+
+" Highlight current line 
+if has("gui_running")
+  set cursorline
+endif
