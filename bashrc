@@ -1,8 +1,3 @@
-function parse_git_branch {
- ref=$(git symbolic-ref HEAD 2> /dev/null) || return
- echo "("${ref#refs/heads/}")" 
-}
-
 #• PS1="\h:\W \u\$(parse_git_branch)\$ "
 
 # aliases
@@ -15,6 +10,9 @@ alias tt="echo test"
 
 # the "kp" alias ("que pasa")
 alias kp="ps auxwww"
+
+# no duplicates in bash history
+export HISTCONTROL=ignoredups
 
 ############################################
  # Modified from emilis bash prompt script
@@ -71,5 +69,57 @@ function prompt_command {
 }
 PROMPT_COMMAND=prompt_command
 
+
+################################################
+# bash functions
+################################################
+function myip {
+  res=$(curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+')
+  echo "$res"
+}
+
+function git_stats {
+# awesome work from https://github.com/esc/git-stats
+# including some modifications
+if [ -n "$(git symbolic-ref HEAD 2> /dev/null)" ]; then
+    echo "Number of commits per author:"
+    git --no-pager shortlog -sn --all
+    AUTHORS=$( git shortlog -sn --all | cut -f2 | cut -f1 -d' ')
+    LOGOPTS=""
+    if [ "$1" == '-w' ]; then
+        LOGOPTS="$LOGOPTS -w"
+        shift
+    fi
+    if [ "$1" == '-M' ]; then
+        LOGOPTS="$LOGOPTS -M"
+        shift
+    fi
+    if [ "$1" == '-C' ]; then
+        LOGOPTS="$LOGOPTS -C --find-copies-harder"
+        shift
+    fi
+    for a in $AUTHORS
+    do
+        echo '-------------------'
+        echo "Statistics for: $a"
+        echo -n "Number of files changed: "
+        git log $LOGOPTS --all --numstat --format="%n" --author=$a | cut -f3 | sort -iu | wc -l
+        echo -n "Number of lines added: "
+        git log $LOGOPTS --all --numstat --format="%n" --author=$a | cut -f1 | awk '{s+=$1} END {print s}'
+        echo -n "Number of lines deleted: "
+        git log $LOGOPTS --all --numstat --format="%n" --author=$a | cut -f2 | awk '{s+=$1} END {print s}'
+        echo -n "Number of merges: "
+        git log $LOGOPTS --all --merges --author=$a | grep -c '^commit'
+    done
+else
+    echo "you're currently not in a git repository"
+fi
+}
+
 function crc32 { cksum -o3 "$@"|ruby -e 'STDIN.each{|a|a=a.split;printf  "%08X\t%s\n",a[0],a[2..-1].join(" ")}'; }
+
+function parse_git_branch {
+ ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+ echo "("${ref#refs/heads/}")" 
+}
 
