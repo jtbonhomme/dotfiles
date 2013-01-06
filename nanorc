@@ -1,5 +1,5 @@
 # Use auto-indentation 
-set autoindent 
+#set autoindent 
 set tabsize 4
 # Convert typed tabs to spaces
 set tabstospaces
@@ -8,13 +8,13 @@ set tabstospaces
 set backup 
  
 # Use cut to end of line with ^K by default 
-set cut 
+#set cut 
  
 # Enable ~/.nano_history for saving and reading search/replace strings. 
 set historylog 
 
 # Don't wrap text at all 
-set nowrap 
+#set nowrap 
  
 # Use smooth scrolling as the default 
 set smooth
@@ -29,6 +29,17 @@ color brightyellow "<[^=       ]*>" ""(.|[^"])*""
 color brightyellow start=""(\\.|[^\"])*\\( |   )*$" end="^(\\.|[^\"])*"" 
 color brightblue "//.*" 
 color brightblue start="/\*" end="\*/" 
+
+syntax "javascript" "\.js$" 
+color red "\<[A-Z_]{2,}\>" 
+color green "\<(var|new|function|require)\>" 
+color brightyellow "\<(if|while|do|else|case|switch)\>" 
+color brightcyan "^#(  )*(define|include|ifn?def|endif|elif|else|if)" 
+color brightyellow "<[^=       ]*>" ""(.|[^"])*"" 
+color brightyellow start=""(\\.|[^\"])*\\( |   )*$" end="^(\\.|[^\"])*"" 
+color brightblue "//.*" 
+color brightblue start="/\*" end="\*/" 
+color red "function|new|var|require" 
  
 syntax "HTML" "\.html$" 
 color blue start="<" end=">" 
