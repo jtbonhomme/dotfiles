@@ -5,7 +5,7 @@ set tabsize 4
 set tabstospaces
  
 # Backup files to filename~ 
-set backup 
+#set backup 
  
 # Use cut to end of line with ^K by default 
 #set cut 

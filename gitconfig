@@ -2,8 +2,8 @@
 	name = Jean-Thierry BONHOMME
 	email = jtbonhomme@gmail.com
 [core]
+    autocrlf = false
 	excludesfile = /Users/jean-thierrybonhomme/.gitignore_global
-	autocrlf = input
 	safecrlf = true
 	editor = ~/bin/subl -n -w
 [difftool "sourcetree"]
@@ -35,4 +35,5 @@
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   ls = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   ll = log --stat --abbrev-commit
-  tg = describe --exact-match --abbrev=0
+  ltg = describe --exact-match --abbrev=0
+  tg = for-each-ref refs/tags
