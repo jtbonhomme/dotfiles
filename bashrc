@@ -178,3 +178,5 @@ function parse_git_branch {
  echo "("${ref#refs/heads/}")" 
 }
 
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
