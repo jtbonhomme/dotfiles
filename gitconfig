@@ -37,3 +37,5 @@
   ll = log --stat --abbrev-commit
   ltg = describe --exact-match --abbrev=0
   tg = for-each-ref refs/tags
+[push]
+	default = matching
