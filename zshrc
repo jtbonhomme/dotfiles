@@ -1,3 +1,11 @@
+# AWS exports
+#source ~/.aws
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+. /Users/jbonhomm/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 archey -c
@@ -34,7 +42,7 @@ ZSH_THEME="blinks"
 # COMPLETION_WAITING_DOTS="true"
 
 # z
-. `brew --prefix`/etc/profile.d/z.sh
+#. `brew --prefix`/etc/profile.d/z.sh
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -49,3 +57,4 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 source ~/dotfiles/updateDotFiles.sh
+export PATH="/usr/local/sbin:$PATH"
