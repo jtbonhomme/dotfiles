@@ -37,5 +37,7 @@
   ll = log --stat --abbrev-commit
   ltg = describe --exact-match --abbrev=0
   tg = for-each-ref refs/tags
+  files = !sh ~/dotfiles/git-files-log.sh
+
 [push]
 	default = matching
