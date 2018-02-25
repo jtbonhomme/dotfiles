@@ -102,3 +102,62 @@ color green "\<-eq\>" "\<-ne\>" "\<-gt\>" "\<-lt\>" "\<-ge\>" "\<-le\>" "\<-s\>"
 #color blue "\" "\" "\" "\" "\" 
 color brightwhite "\.*"
 
+## Go Syntax Highlighting
+##
+syntax "go" "\.go$"
+
+## Types n stuff
+color green "\<((u)?int(8|16|32|64)?|float(32|64)|byte|string|interface|nil|bool|true|false)\>"
+color green "\<(package|import|const|var|type|struct|func)\>"
+color brightyellow "\<(for|range|if|else|case|default|switch)\>"
+color magenta "\<(continue|break|return)\>"
+
+## Strings
+color brightyellow "".*""
+color brightyellow "'.'"
+
+## Comment highlighting
+color brightblue "//.*"
+color brightblue start="/\*" end="\*/"
+
+## Trailing whitespace
+color ,green "[[:space:]]+$"
+
+syntax "markdown" "\.md$" "\.markdown$"
+
+## Quotations
+color cyan "^>.*"
+
+## Emphasis
+color green "_[^_]*_"
+color green "\*[^\*]*\*"
+
+## Strong emphasis
+color brightgreen "\*\*[^\*]*\*\*"
+color brightgreen "__[\_]*__"
+
+## Underline headers
+color brightblue "^====(=*)"
+color brightblue "^----(-*)"
+
+## Hash headers
+color brightblue "^#.*"
+
+## Linkified URLs (and inline html tags)
+color brightmagenta start="<" end=">"
+
+## Links
+color brightmagenta "\[.*\](\([^\)]*\))?"
+
+## Link id's:
+color brightmagenta "^\[.*\]:( )+.*"
+
+## Code spans
+color brightyellow "`[^`]*`"
+
+## Links and inline images
+color brightmagenta start="!\[" end="\]"
+color brightmagenta start="\[" end="\]"
+
+## Lists
+color yellow "^( )*(\*|\+|\-|[0-9]+\.) "

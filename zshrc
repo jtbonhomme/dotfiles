@@ -3,8 +3,9 @@
 
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
+nvm use 6
 
-. /Users/jbonhomm/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+# . /Users/jbonhomm/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -16,8 +17,12 @@ archey -c
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="mh"
-#ZSH_THEME="bira"
-ZSH_THEME="blinks"
+#ZSH_THEME="blinks"
+#ZSH_THEME="agnoster"
+#ZSH_THEME="aussiegeek"
+#ZSH_THEME="candy"
+#ZSH_THEME="fino-time"
+ZSH_THEME="bira"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -58,3 +63,13 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 source ~/dotfiles/updateDotFiles.sh
 export PATH="/usr/local/sbin:$PATH"
+
+export GOPATH=$HOME/Developments/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
+export PATH=$(pyenv root)/shims:$PATH
+eval "$(pyenv init -)"
+pyenv local system
+
