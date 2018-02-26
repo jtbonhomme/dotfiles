@@ -1,5 +1,12 @@
 #• PS1="\h:\W \u\$(parse_git_branch)\$ "
 
+# Go
+
+export GOPATH=$HOME/Developments/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
 # Sets G7 Home Directory
 G7_HOME=~/Developpements/r7
 G7_API=$G7_HOME/api
