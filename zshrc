@@ -58,3 +58,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 source ~/dotfiles/updateDotFiles.sh
 export PATH="/usr/local/sbin:$PATH"
+
+nvm use 6
+
+export GOPATH=$HOME/Documents/Developpements/golang
+export PATH=$PATH:$(go env GOPATH)/bin
