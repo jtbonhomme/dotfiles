@@ -41,3 +41,5 @@
 
 [push]
 	default = matching
+[url "git@gitlab.intercloud.fr:"]
+	insteadOf = https://gitlab.intercloud.fr/
