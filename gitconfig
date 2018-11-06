@@ -5,7 +5,7 @@
     autocrlf = false
 	excludesfile = /Users/jean-thierrybonhomme/.gitignore_global
 	safecrlf = true
-	editor = ~/bin/subl -n -w
+	editor = ~/bin/code
 [difftool "icdiff"]
 	cmd = icdiff \"$LOCAL\" \"$REMOTE\"
 	path = 

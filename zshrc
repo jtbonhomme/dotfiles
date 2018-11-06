@@ -2,15 +2,18 @@
 #source ~/.aws
 source ~/.devrc
 
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-nvm use 6
+# NVM
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for script
 
 # . /Users/jbonhomm/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-archey -c
+archey -c -o
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -58,7 +61,7 @@ plugins=(git z)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/X11/bin:/usr/local/share/npm/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/X11/bin:/usr/local/share/npm/bin:$HOME/bin
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
@@ -66,10 +69,20 @@ source ~/dotfiles/updateDotFiles.sh
 export PATH="/usr/local/sbin:$PATH"
 
 export GOPATH=$DEV/golang
-export GOROOT=/usr/local/opt/go/libexec
+export GOROOT=/usr/local/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
 #export PATH=$(pyenv root)/shims:$PATH
 #eval "$(pyenv init -)"
 #pyenv local system
+
+PATH="/Users/jbonhomm/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/jbonhomm/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/jbonhomm/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/jbonhomm/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/jbonhomm/perl5"; export PERL_MM_OPT;
+
+echo "set nvm in .bashrc"
+nvm alias default v10.3.0
+nvm use v10.3.0

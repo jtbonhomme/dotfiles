@@ -7,68 +7,15 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
-# Sets G7 Home Directory
-G7_HOME=~/Developpements/r7
-G7_API=$G7_HOME/api
-G7_TESTAPP=$G7_HOME/testapp
-G7_WEBAPP=$G7_HOME/webapp
-G7_TOOLS=$G7_HOME/testapp/g7-tools
-G7_IAPP=$G7_HOME/iApp
-
-# Box References
-G7_IP_BOX="10.0.1.184"
-G7_ZERCONF_NAME_BOX="G7 DEV JTB"
-
-# Aliases
-alias "gapi"="cd $G7_API"
-alias "gtapp"="cd $G7_TESTAPP"
-alias "gwapp"="cd $G7_WEBAPP"
-alias "gbox"="ssh root@$G7_IP_BOX"
-alias "gtools"="cd $G7_TOOLS"
-alias "ggithub"="open -a Google\ Chrome.app https://github.com/canalplus/"
-alias "gapidoc"="open -a Google\ Chrome.app http://gustave.canallabs/docs/restapi/"
-
-# Functional aliases
-alias "grefresh"="g7_refresh_webapp"
-alias "gprimo"="g7_reload_primo"
-
 # Curl tools
 alias "gput"='curl -X PUT -H "Content-Type: application/json "'
 alias "gpost"='curl -X POST -H "Content-Type: application/json  "'
 
-# Add G7-TOOLS to path
-export PATH=$G7_TOOLS:$PATH
-export BOX_IP=$G7_IP_BOX
-export BOX_PORT=8184
-
-# Functions
-
-# g7_refresh_webapp
-# Refresh webapp on http://127.0.0.1
-g7_refresh_webapp(){
-ssh -n root@$G7_IP_BOX 'pkill -9 qtwebkitlauncher && nohup launch qt -t http://127.0.0.1/ >/dev/null 2>&1 &'
-}
-
-# g7_reload_primo
-# Reset to primo install
-# g7_refresh_webapp to apply conf
-g7_reload_primo(){
-curl -X DELETE $G7_IP_BOX/install
-}
-
-# g7_create_ssh_tunnel
-# Create an ssh tunnel between
-# machine an STB
-g7_create_ssh_tunnel(){
-    ssh -o StrictHostKeyChecking=no -f -N -L $BOX_PORT:$BOX_IP:80 root@$BOX_IP
-}
-# aliases
 alias ..="cd .."
 alias l="ls -al"
 alias ll="ls -als"
 alias lp="ls -p"
 alias h=history
-alias tt="echo test"
 
 # the "kp" alias ("que pasa")
 alias kp="ps auxwww"
@@ -185,5 +132,3 @@ function parse_git_branch {
  echo "("${ref#refs/heads/}")" 
 }
 
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
