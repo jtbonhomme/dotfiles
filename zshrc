@@ -26,7 +26,11 @@ archey -c -o
 #ZSH_THEME="aussiegeek"
 #ZSH_THEME="candy"
 #ZSH_THEME="fino-time"
+#ZSH_THEME="ys"
+
+# current theme
 ZSH_THEME="bira"
+#ZSH_THEME="robbyrussell"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -56,7 +60,7 @@ ZSH_THEME="bira"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git z)
+plugins=(git z docker aws go kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -64,6 +68,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/X11/bin:/usr/local/share/npm/bin:$HOME/bin
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:/Library/PostgreSQL/10/bin"
 
 source ~/dotfiles/updateDotFiles.sh
 export PATH="/usr/local/sbin:$PATH"
@@ -72,7 +77,7 @@ export GOPATH=$DEV/golang
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
-
+export GO111MODULE=on
 #export PATH=$(pyenv root)/shims:$PATH
 #eval "$(pyenv init -)"
 #pyenv local system
@@ -84,5 +89,16 @@ PERL_MB_OPT="--install_base \"/Users/jbonhomm/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/jbonhomm/perl5"; export PERL_MM_OPT;
 
 echo "set nvm in .bashrc"
-nvm alias default v10.3.0
-nvm use v10.3.0
+nvm alias default v14.8.0
+nvm use v14.8.0
+export MB_KEY="MDM4M2RjY2Q5ZjExMDMyN2JkZDZhNmNlNzYyODU3ZWY.fliTh-39cdWy_e6Fhq16v3Z84kNS6B7t68LgvYiaWZ9h_DiJJRcZc9BAwJfvXM187M6kekgY44ezYhqtTX1tYA"
+
+export LOCAL_JOB_TOKEN="reKtCyzT74BRTdWZ1Hri"
+
+export REGISTRY_USER=jbonhomm
+export REGISTRY_TOKEN=EDyno252
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+alias k=kubectl

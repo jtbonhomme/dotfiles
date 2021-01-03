@@ -1,14 +1,17 @@
 [user]
 	name = Jean-Thierry BONHOMME
 	email = jtbonhomme@gmail.com
+
 [core]
-    autocrlf = false
+  autocrlf = false
 	excludesfile = /Users/jean-thierrybonhomme/.gitignore_global
 	safecrlf = true
-	editor = ~/bin/code
+	editor = code --wait
+
 [difftool "icdiff"]
 	cmd = icdiff \"$LOCAL\" \"$REMOTE\"
 	path = 
+
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -32,7 +35,7 @@
   msg = commit --allow-empty -m
   rpull = pull --rebase
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  lg = log --all --graph --decorate --oneline --simplify-by-decoration
   ls = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   ll = log --stat --abbrev-commit
   ltg = describe --exact-match --abbrev=0
@@ -41,5 +44,12 @@
 
 [push]
 	default = matching
+
 [url "git@gitlab.intercloud.fr:"]
 	insteadOf = https://gitlab.intercloud.fr/
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
