@@ -60,7 +60,7 @@ ZSH_THEME="bira"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git z docker aws go kubectl)
+plugins=(git z docker aws golang kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
