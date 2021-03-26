@@ -81,6 +81,9 @@ rm ~/Downloads/AWSCLIV2.pkg
 # docker
 curl -o ~/Downloads/Docker.dmg https://desktop.docker.com/mac/stable/Docker.dmg
 
+# spotify
+curl -o ~/Downloads/SpotifyInstaller.zip https://download.scdn.co/SpotifyInstaller.zip
+
 # At the end
 
 source ~/.zshrc
