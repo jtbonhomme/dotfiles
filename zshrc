@@ -91,12 +91,7 @@ PERL_MM_OPT="INSTALL_BASE=/Users/jbonhomm/perl5"; export PERL_MM_OPT;
 echo "set nvm in .bashrc"
 nvm alias default v14.8.0
 nvm use v14.8.0
-export MB_KEY="MDM4M2RjY2Q5ZjExMDMyN2JkZDZhNmNlNzYyODU3ZWY.fliTh-39cdWy_e6Fhq16v3Z84kNS6B7t68LgvYiaWZ9h_DiJJRcZc9BAwJfvXM187M6kekgY44ezYhqtTX1tYA"
 
-export LOCAL_JOB_TOKEN="reKtCyzT74BRTdWZ1Hri"
-
-export REGISTRY_USER=jbonhomm
-export REGISTRY_TOKEN=EDyno252
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
