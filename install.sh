@@ -13,11 +13,37 @@ fi
 
 brew install node
 brew install archey
+brew install oathtool
 brew install oath-toolkit
 brew install bitwarden-cli
 brew install fzf
 brew install tree
 brew install watch
+brew install kafkacat
+brew install zstd
+brew install htop
+brew tap lintingzhen/tap
+brew install commitizen-go
+brew install gitleaks
+brew install pre-commit
+brew install pyenv pyenv-virtualenv k3d helm helmfile kubectx
+brew install pip
+brew install kubectl
+brew install azure-cli
+brew install bat
+brew  tap  homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
+brew install postgresql
+brew install sbt
+brew install scala
+brew install sbt
+brew install graphviz
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+brew install bleunlock
+brew install k9s
+brew install golangci-lint
 
 # nvm
 if ! command -v nvm &> /dev/null
@@ -80,9 +106,6 @@ rm ~/Downloads/AWSCLIV2.pkg
 
 # docker
 curl -o ~/Downloads/Docker.dmg https://desktop.docker.com/mac/stable/Docker.dmg
-
-# spotify
-curl -o ~/Downloads/SpotifyInstaller.zip https://download.scdn.co/SpotifyInstaller.zip
 
 # At the end
 
