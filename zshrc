@@ -60,7 +60,7 @@ ZSH_THEME="bira"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git z docker aws golang kubectl)
+plugins=(git z docker aws golang kubectl dotenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,3 +97,61 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 alias k=kubectl
+
+function token() {
+    node -p 'require("crypto").randomUUID()'
+}
+
+
+# Export Bitwarden unlocking Vault session key
+export BW_SESSION="PUT-YOUR-TOKEN-HERE"
+
+
+function bwLogin() {
+    passwd=$(bw get password SERVICE-NAME)
+    totp=$(oathtool --base32 --totp TOTP-TOKEN)
+}
+
+
+function gorep() {
+    if [[ $1 == "" ]]
+    then
+        echo usage: gorep string_to_replace replacement_string
+        return 1
+    fi
+    if [[ $2 == "" ]]
+    then
+        echo usage: gorep string_to_replace replacement_string
+        return 2
+    fi
+    for i in $(ls **/*.go)
+    do
+        echo "processing $i to replace $1 with $2 ..."
+        cat $i |sed "s/$1/$2/g">/tmp/tmp.go
+        cp /tmp/tmp.go $i
+    done
+}
+
+#eval "$(pyenv init -)"
+
+alias code="/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron"
+
+
+function ggrep() {
+	grep -n $1 **/*.go
+}
+
+function sgrep() {
+	grep -n $1 **/*.scala
+}
+
+function ygrep() {
+        grep -n -R --include="*.gotmpl" --include="*.yaml" --include="*.yml" $1
+}
+
+function tgrep() {
+        grep -n -R --include="*.tf" --include="*.tfvars" $1
+}
+
+source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+
