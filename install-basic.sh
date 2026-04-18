@@ -122,6 +122,11 @@ curl -o ~/Downloads/iTerm2-${ITERM2VERSION}.zip https://iterm2.com/downloads/sta
 unzip ~/Downloads/iTerm2-${ITERM2VERSION}.zip -d /Applications
 rm ~/Downloads/iTerm2-${ITERM2VERSION}.zip
 
+# ollama
+if ! command -v ollama &> /dev/null then
+    curl -fsSL https://ollama.com/install.sh | sh
+fi
+
 # Caffeine.app
 open https://www.caffeine-app.net/download/tahoe/
 
