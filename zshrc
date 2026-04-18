@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # AWS exports
 #source ~/.aws
 source ~/.devrc
@@ -13,7 +20,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for script
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-archey -c -o
+archey
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -27,10 +34,11 @@ archey -c -o
 #ZSH_THEME="candy"
 #ZSH_THEME="fino-time"
 #ZSH_THEME="ys"
+#ZSH_THEME="bira"
 
 # current theme
-ZSH_THEME="bira"
-#ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -70,7 +78,7 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:/Library/PostgreSQL/10/bin"
 
-source ~/dotfiles/updateDotFiles.sh
+#source ~/dotfiles/updateDotFiles.sh
 export PATH="/usr/local/sbin:$PATH"
 
 export GOPATH=$DEV/golang
@@ -89,8 +97,8 @@ PERL_MB_OPT="--install_base \"/Users/jbonhomm/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/jbonhomm/perl5"; export PERL_MM_OPT;
 
 echo "set nvm in .bashrc"
-nvm alias default v14.8.0
-nvm use v14.8.0
+nvm alias default v25.9.0
+nvm use v25.9.0
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -153,5 +161,5 @@ function tgrep() {
         grep -n -R --include="*.tf" --include="*.tfvars" $1
 }
 
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
-
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
