@@ -10,13 +10,10 @@ fi
 source ~/.devrc
 
 # NVM
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for script
-
-# . /Users/jbonhomm/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -62,9 +59,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
-# z
-#. `brew --prefix`/etc/profile.d/z.sh
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -73,23 +67,26 @@ plugins=(git z docker aws golang kubectl dotenv)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/X11/bin:/usr/local/share/npm/bin:$HOME/bin
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$PATH:/Library/PostgreSQL/10/bin"
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/X11/bin
+export PATH=/usr/local/share/npm/bin:$PATH
+export PATH=$HOME/bin:$PATH
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+export PATH="/usr/local/sbin:$PATH"
 
 #source ~/dotfiles/updateDotFiles.sh
-export PATH="/usr/local/sbin:$PATH"
 
 export GOPATH=$DEV/golang
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export GO111MODULE=on
+
+# ???
 #export PATH=$(pyenv root)/shims:$PATH
 #eval "$(pyenv init -)"
 #pyenv local system
 
+# PERL 
 PATH="/Users/jbonhomm/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/Users/jbonhomm/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/Users/jbonhomm/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
