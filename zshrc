@@ -86,13 +86,6 @@ export GO111MODULE=on
 #eval "$(pyenv init -)"
 #pyenv local system
 
-# PERL 
-PATH="/Users/jbonhomm/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/jbonhomm/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/jbonhomm/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/jbonhomm/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/jbonhomm/perl5"; export PERL_MM_OPT;
-
 echo "set nvm in .bashrc"
 nvm alias default v25.9.0
 nvm use v25.9.0
